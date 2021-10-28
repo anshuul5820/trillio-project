@@ -1,35 +1,117 @@
 .logo {
   height: 3.35rem;
+  margin: 2rem;
 }
 
 .search {
+  flex: 0 0 40%;
+  //0 0 40% --0 doesnt fill all its available space; 0 no shrink, 40% occupy 40% of entire width
+  display: flex; //flex container becomes flex items
+  align-items: center;
+  justify-content: center;
+  //align-items centres along cross-axis, justify-content centres aling main-axis
+
   &__input {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 100px;
+    width: 90%; //search button expands when clicked, so not 100%
+    transition: all 0.2s;
+    margin-right: -3.5rem;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3);
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+
+  &__input:focus + &__button {
+    background-color: var(--color-grey-light-3);
   }
 
   &__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
   }
 
   &__icon {
     height: 2rem;
     width: 2rem;
+    fill: var(--color-grey-dark-3);
   }
 }
 
 .user-nav {
+  display: flex;
+  align-self: stretch;
+  //self applies on each individual item, user-nav here
+  //header is align-items centered, user-nav is element of it, we want it to be stretched, so align-self
+
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  //selects only direct elements, not nested ones
+
+  & > * :hover {
+    background-color: var(--color-grey-light-2);
+  }
+
   &__icon-box {
-    height: 2.25rem;
-    width: 2.25rem;
+    //     display: flex;
+    //     align-items: center;
+    position: relative;
   }
 
   &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--color-grey-dark-2);
+    //way to color svg icons
   }
 
   &__notification {
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      background-color: var(--color-primary);
+    }
+    //flexbox works on text also, above 2 properties center number in notifs in both axes.
   }
 
   &__user-photo {
     height: 3.75rem;
     border-radius: 50%;
+    margin-right: 1rem;
   }
 
   &__user-name {
