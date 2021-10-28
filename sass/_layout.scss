@@ -2,7 +2,7 @@
   max-width: 120rem; //if vw is <1200px, occupy 100% of vw
   margin: 8rem auto;
   background-color: var(--color-grey-light-1);
-  box-shadow: var(--shadow-dark-1);
+  box-shadow: var(--shadow-dark);
 
   min-height: 50rem;
 }
@@ -11,7 +11,7 @@
   font-size: 1.4rem;
   height: 7rem;
   background-color: #fff;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  border-bottom: var(--line);
 
   display: flex;
   justify-content: space-between;
@@ -40,6 +40,29 @@
 .hotel-view {
   background-color: #fff;
   flex: 1;
+}
 
-  height: 80rem;
+.detail {
+  font-size: 1.4rem;
+  display: flex;
+  padding: 4.5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line);
+}
+
+.description {
+  font-size: inherit; //inherits from detail
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  flex: 0 0 60%;
+  margin-right: 4.5rem;
+}
+
+.user-reviews {
+  font-size: inherit;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
