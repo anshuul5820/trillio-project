@@ -1,0 +1,31 @@
+.container {
+  max-width: 120rem; //if vw is <1200px, occupy 100% of vw
+  margin: 8rem auto;
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--shadow-dark-1);
+
+  min-height: 50rem;
+}
+
+.header {
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--color-grey-light-2);
+}
+
+.content {
+  display: flex;
+  //parent container has to be set to flex to use flexbox
+}
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  flex: 0 0 18%;
+  //0 0 18%--> flex-grow, flex-shrink, flex-basis
+}
+
+.hotel-view {
+  background-color: #fff;
+  background-color: orangered;
+  flex: 1;
+}
