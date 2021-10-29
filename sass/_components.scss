@@ -13,7 +13,7 @@
   @media only screen and (max-width: $bp-smallest) {
     order: 1; //moves search bar to last, all others are 0; default
     flex: 0 0 100%; //make width 100%, so that theres not enough space and it moves down
-    margin-top: -1rem; 
+    margin-top: -1rem;
   }
 
   &__input {
@@ -390,16 +390,19 @@
     width: 1rem;
     margin-right: 0.7rem;
     //older browser approach
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
     //newer browsers mask
     background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
     //masking in css--> only unveils parts of bg-color that have image behind them
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    } //if this property is supported, then only use it.
   }
   //used to show svg icons directly from css, showing icons from sprite file is difficult in css, so directly icons are imported
 }
