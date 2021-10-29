@@ -10,6 +10,11 @@
   align-items: center;
   justify-content: center;
   //align-items centres along cross-axis, justify-content centres aling main-axis
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1; //moves search bar to last, all others are 0; default
+    flex: 0 0 100%; //make width 100%, so that theres not enough space and it moves down
+    margin-top: -1rem; 
+  }
 
   &__input {
     font-family: inherit;
@@ -123,11 +128,20 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1; //grow as much as they can, since all have flex 1, each occupies 25%
     }
   }
 
@@ -173,6 +187,16 @@
     //     </svg>
     //     <span>Tours</span>
     //     </a> ----> centres contents of a horizontolly
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
   }
 
   //   &__link:hover {
@@ -185,6 +209,12 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor; //color of current, if not present then parent element, also fetches color from hover
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-right: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -193,6 +223,10 @@
   text-align: center;
   padding: 2.5rem;
   color: var(--color-grey-light-4);
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 // :hover, etc -> are psuedo classes
@@ -219,6 +253,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -255,15 +294,26 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px;
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    @media only screen and (max-width: $bp-small) {
+      font-size: 0.5rem;
+    }
   }
 }
 
@@ -368,7 +418,7 @@
     border: 3px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
   &__count {
@@ -376,6 +426,7 @@
   }
 
   &__friends {
+    display: flex;
   }
 }
 
@@ -386,6 +437,11 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -443,6 +499,11 @@
 .cta {
   padding: 3.5rem;
   text-align: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem;
+    margin-bottom: 3.5rem;
+  }
 
   &__book-now {
     font-size: 2rem;

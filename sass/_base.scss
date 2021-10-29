@@ -37,6 +37,13 @@ Grey dark 3: #999
 }
 //similar to html selector, higher specificity
 
+$bp-largest: 75em; //1200/16
+$bp-large: 68.75em; //1100/16
+$bp-medium: 56.25em; //900/16
+$bp-small: 37.5em; //600/16
+$bp-smallest: 31.25em; //500/16
+//sass variables bcoz css vars are not supported in media queries
+
 * {
   margin: 0;
   padding: 0;
@@ -52,6 +59,10 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   //1rem=10px, default: 1rem=16px, 1px= .625rem;
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%; //initially 10px, now 8px, so 8/16=50%
+  }
 }
 
 body {
